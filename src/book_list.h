@@ -12,22 +12,22 @@ struct _BookList {
 };
 
 
-book_list_ptr init_book_list(void);
-bool is_empty(list_ptr );
-size_t get_size_list(list_ptr );
+void init_book_list(book_list_ptr );
+bool book_list_empty(book_list_ptr );
+size_t get_size_list(book_list_ptr );
 
 // insert book functions
-void insert_book_at_top_list(book_list_ptr , int );
-void insert_book_at_end_list(book_list_ptr , int );
-void insert_book_at_index_list(book_list_ptr , int , unsigned );
+void insert_book_at_top_list(book_list_ptr , book_node_ptr );
+void insert_book_at_end_list(book_list_ptr , book_node_ptr );
+void insert_book_at_index_list(book_list_ptr , book_node_ptr , const unsigned );
 
 // remove book functions
 void remove_book_from_top_list(book_list_ptr );
 void remove_book_from_end_list(book_list_ptr );
-void remove_book_from_index_list(book_list_ptr , unsigned );
+void remove_book_from_index_list(book_list_ptr , const unsigned );
 
 // other functions
-int find_index_node(book_list_ptr , int );
+book_node_ptr get_book_by_index(book_list_ptr , unsigned );
 bool compare_lists(book_list_ptr , book_list_ptr );
 void sort_list(book_list_ptr );
 void free_list(book_list_ptr );
