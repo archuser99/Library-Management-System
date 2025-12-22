@@ -73,3 +73,34 @@ int compare_book_by_fieled(book_node_ptr book_1, book_node_ptr book_2, unsigned 
         return cmp_usigned( book_1->number_pages, book_2->number_pages);
     }
 }
+
+int compare_books(book_node_ptr book_1, book_node_ptr book_2){
+    if( book_1 == NULL || book_2 == NULL ){
+        fprintf(stderr, "Error while comparing two books");
+        return 0;
+    }
+    int result = strncmp( book_1->title, book_2->title, MAX_TITLE_LEN);
+    if( result == 0 )
+        result = compare_person_name_by_field( &(book_1->author_name), &(book_2->author_name), 1 );
+    else return result;
+    
+    if( result == 0 )
+        result = compare_person_name_by_field( &(book_1->author_name), &(book_2->author_name), 2 );
+    else return result;
+    
+    if( result == 0 )
+        result = compare_person_name_by_field( &(book_1->author_name), &(book_2->author_name), 2 );
+    else return result;
+    
+    if( result == 0 )
+        compare_person_name_by_field( &(book_1->author_name), &(book_2->author_name), 3 );
+    else return result;
+
+    if( result == 0 )
+        result = cmp_usigned( book_1->number_pages, book_2->number_pages);
+    else return result;
+    
+    if( result == 0 )
+        return cmp_usigned( book_1->number_pages, book_2->number_pages);
+    else return result;
+}

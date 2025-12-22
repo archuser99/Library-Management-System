@@ -23,7 +23,8 @@ void print_book(book_node_ptr );
 
 void free_book_node(book_node_ptr );
 
-int compare_book_by_fieled(book_node_ptr , book_node_ptr , unsigned );
+int compare_books_by_fieled(book_node_ptr , book_node_ptr , unsigned );
 
+int compare_books(book_node_ptr , book_node_ptr );
 
 #endif  /* BOOK_NODE_H */
